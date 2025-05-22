@@ -28,9 +28,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install npm dependencies and build frontend
+      - name: Clean install and build frontend
         run: |
-          npm install
+          rm -rf node_modules package-lock.json
+          npm install --force
           npm run build
 
       - name: Check if composer.json exists
